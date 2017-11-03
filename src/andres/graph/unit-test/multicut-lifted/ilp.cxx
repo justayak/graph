@@ -7,9 +7,9 @@
 #include <andres/graph/multicut-lifted/ilp.hxx>
 
 inline void test(bool pred)
-{ 
+{
     if(!pred)
-        throw std::runtime_error("Test failed."); 
+        throw std::runtime_error("Test failed.");
 }
 
 void test_3()
@@ -25,13 +25,13 @@ void test_3()
     lifted_graph.insertEdge(1, 2);
     lifted_graph.insertEdge(0, 2);
 
-    vector<double> edge_values(lifted_graph.numberOfEdges());
+    std::vector<double> edge_values(lifted_graph.numberOfEdges());
 
     edge_values[0] = -10;
     edge_values[1] = -10;
     edge_values[2] = 10;
 
-    vector<char> edge_labels(lifted_graph.numberOfEdges());
+    std::vector<char> edge_labels(lifted_graph.numberOfEdges());
     andres::graph::multicut_lifted::ilp<andres::ilp::Gurobi>(original_graph, lifted_graph, edge_values, edge_labels, edge_labels);
 
     test(edge_labels[0] == 1);
@@ -56,7 +56,7 @@ void test_4()
     lifted_graph.insertEdge(2, 3);
     lifted_graph.insertEdge(0, 2);
 
-    vector<double> edge_values(lifted_graph.numberOfEdges());
+    std::vector<double> edge_values(lifted_graph.numberOfEdges());
 
     edge_values[0] = -10;
     edge_values[1] = -2;
@@ -64,7 +64,7 @@ void test_4()
     edge_values[3] = -4;
     edge_values[4] = 1;
 
-    vector<char> edge_labels(lifted_graph.numberOfEdges());
+    std::vector<char> edge_labels(lifted_graph.numberOfEdges());
     andres::graph::multicut_lifted::ilp<andres::ilp::Gurobi>(original_graph, lifted_graph, edge_values, edge_labels, edge_labels);
 
     test(edge_labels[0] == 1);
@@ -104,7 +104,7 @@ void test_8()
 
     lifted_graph.insertEdge(0, 7);
 
-    vector<double> edge_values(lifted_graph.numberOfEdges());
+    std::vector<double> edge_values(lifted_graph.numberOfEdges());
 
     edge_values[0] = -5;
     edge_values[1] = -5;
@@ -119,7 +119,7 @@ void test_8()
 
     edge_values[10] = -4;
 
-    vector<char> edge_labels(lifted_graph.numberOfEdges());
+    std::vector<char> edge_labels(lifted_graph.numberOfEdges());
     andres::graph::multicut_lifted::ilp<andres::ilp::Gurobi>(original_graph, lifted_graph, edge_values, edge_labels, edge_labels);
 
     test(edge_labels[0] == 1);
