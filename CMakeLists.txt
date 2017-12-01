@@ -116,6 +116,11 @@ if(COMPILER_SUPPORTS_CXX0X OR COMPILER_SUPPORTS_CXX11)
     add_executable(test-graph-multicut-kernighan-lin src/andres/graph/unit-test/multicut/kernighan-lin.cxx ${headers})
     add_test(test-graph-multicut-kernighan-lin test-graph-multicut-kernighan-lin)
 
+    # ---- our tests
+    add_executable(cabbage src/andres/graph/unit-test/multicut-lifted/multiple_ppl_tracking.cxx ${headers})
+    #add_test(cabbage cabbage)
+    # ----
+
     add_executable(test-graph-multicut-greedy-additive src/andres/graph/unit-test/multicut/greedy-additive.cxx ${headers})
     add_test(test-graph-multicut-greedy-additive test-graph-multicut-greedy-additive)
 
